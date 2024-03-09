@@ -1,0 +1,24 @@
+title:Crop
+---
+<< if getActions() < 15 >>
+    Aeon: Even at 1.5 °C, the risk to crops could lead to a global food crisis
+    Aeon: It could push us past crucial climate tipping points
+    Aeon: 1.5 °C could still pose existential challenge to small islands and low-lying nations
+    Aeon: We need to focus on getting net temperature change to zero
+    Aeon: Take 50 Defend The Planet actions on Global Citizen
+    -> You: I have taken 50 Defend The Planet actions
+        <<visit Loading>>
+        <<if getActions() >= 15 >>
+            <<jump WinLevel3>>
+        <<elseif getActions() < 15 >>
+            Aeon: Sorry, You have to complete 50 Defend The Planet actions
+            <<visit GameOver>>    
+        <<endif>>
+    ->You: There are lesser than 50 Defend The Planet actions on Global Citizen
+        Aeon: Defend The Planet actions are added regularly in Global Citizen
+        Aeon: Please check again later to complete this level
+        Aeon: Good bye for now
+<< elseif getActions() >= 15>>
+    <<jump WinLevel3>>
+<<endif>>
+===

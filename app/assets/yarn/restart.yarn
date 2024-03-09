@@ -1,0 +1,13 @@
+title:Restart
+---
+Aeon: You are now a Level {$level} Planet Defender
+Aeon: Do you want to restart level {$level} from last checkpoint?
+-> You: Yes, I want to restart level {$level}
+    -> You: Start from the last checkpoint
+        <<visit Loading>>
+        <<jump Connection>>
+    -> You: Start new
+        Aeon: You need to add a new Global Citizen profile in the settings    
+-> No, I don't want to restart level
+    Aeon: Click 'Back' and select another level. 
+===

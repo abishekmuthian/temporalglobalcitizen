@@ -1,0 +1,17 @@
+title: Sand
+---
+<< if getActions() < 5 >>
+    Aeon: Let's try to limit global warming below 2 °C
+    Aeon: Take 5 Defend The Planet actions on Global Citizen
+    -> You: I have taken 5 Defend The Planet actions
+        <<visit Loading>>
+        <<if getActions() >= 5 >>
+            <<jump WinLevel1>>
+        <<elseif getActions() < 5 >>
+            Aeon: Sorry, You have to complete 5 Defend The Planet actions
+            <<visit GameOver>>    
+        <<endif>>
+<< elseif getActions() >= 5>>
+    <<jump WinLevel1>>
+<<endif>>
+===

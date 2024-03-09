@@ -1,0 +1,35 @@
+<<declare $playerName = getPlayerName()>>
+<<declare $levelReached = getHighestLevelReached()>>
+<<declare $level = getLevel()>>
+<<character Aeon>>
+<<character You>>
+title: Sea
+---
+<<if $playerName == "Player">>
+    Aeon: Hey, this is Aeon from year 2100
+    Aeon: I'm messaging you via a temporal portal
+    Aeon: Access your temporal portal at Global Citizen
+    Aeon: Visit globalcitizen\n.org website
+    Aeon: Create a public profile
+    ->You: I have created a public profile at Global Citizen
+        Aeon: Enter your Global Citizen username in the settings here
+        Aeon: Click the gear button on the top right
+    ->You: I don't know how
+        Aeon: Visit globalcitizen\n.org website
+        Aeon: Sign Up, Enable public profile
+        Aeon: Enter your Global Citizen username in the settings here
+        Aeon: Click the gear button on the top right
+<<else>>
+    <<if $levelReached == 0>>
+        <<visit Loading>>
+        <<jump Connection>>   
+    <<else>>
+        <<if $levelReached == $level>>
+            <<jump {"CelebrationLevel" + string($level)}>>   
+        <<else>>
+            <<visit Loading>>
+            <<jump Connection>>   
+        <<endif>>   
+    <<endif>>
+<<endif>>
+===

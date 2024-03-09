@@ -1,0 +1,19 @@
+title:Sea2
+---
+<< if getActions() < 10 >>
+    Aeon: We need to take more actions to prevent global average temperature from hitting 1.5 °C
+    Aeon: Sea level rise is expected to be around 10cm (4in) lower at 1.5C compared with 2C.
+    Aeon: Keeping 1.5 °C within sight would require rapid and unprecedented levels of action
+    Aeon: Take 10 Defend The Planet actions on Global Citizen
+    -> You: I have taken 10 Defend The Planet actions
+        <<visit Loading>>
+        <<if getActions() >= 10 >>
+            <<jump WinLevel2>>
+        <<elseif getActions() < 10 >>
+            Aeon: Sorry, You have to complete 10 Defend The Planet actions
+            <<visit GameOver>>    
+        <<endif>>
+<< elseif getActions() >= 10>>
+    <<jump WinLevel2>>
+<<endif>>
+===

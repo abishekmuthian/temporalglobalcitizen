@@ -1,0 +1,8 @@
+title: WinLevel1
+---
+Aeon: Great work on performing {getActions()} Defend The Planet actions
+Aeon: Congratulations, for making a difference
+Aeon: We're already noticing the difference here
+Aeon: You are now a Level 1 Planet Defender
+<<processWin>>
+===

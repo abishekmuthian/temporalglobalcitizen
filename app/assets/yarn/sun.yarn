@@ -1,0 +1,32 @@
+title: Sun
+---
+<< if getActions() == 0 >>
+    Aeon: The climate crisis is the biggest threat to your planet
+    Aeon: In 2100, Earth is ravaged by climate change
+    Aeon: Many animal and plant species are extinct
+    Aeon: You can help prevent this,
+    Aeon: raise your voice to demand climate justice 
+    Aeon: and a green future for all
+    Aeon: Global Citizen can help you do this
+    Aeon: Go to Global Citizen, take a Defend The Planet action
+    Aeon: Did you find how to take a Defend The Planet action?
+    -> You: Yes, I took a Defend The Planet action
+        Aeon: Let me check
+        <<visit Loading>>
+    -> You: I, Don't know how to take a Defend The Planet action
+        Aeon: Go to globalcitizen\n.org
+        Aeon: Click Take Action
+        Aeon: Click Climate Action Now under Defend The Planet
+        Aeon: Take action
+        -> You: I took a Defend The Planet action
+            Aeon: Let me check
+            <<visit Loading>>
+            <<if getActions() >= 0>>
+                <<jump Sand>>
+            <<endif>>    
+        -> You: I still don't know 
+            <<visit GameOver>>
+<<elseif getActions() >=0>>
+    <<jump Sand>>    
+<<endif>>    
+===
