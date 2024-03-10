@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'package:temporal_global_citizen/audio/audio_controller.dart';
 import 'package:temporal_global_citizen/game_internals/data_fetcher.dart';
 import 'package:temporal_global_citizen/game_internals/level_state.dart';
 import 'package:temporal_global_citizen/settings/settings.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
+import '../audio/sounds.dart';
 import '../game_internals/score.dart';
 import '../style/my_button.dart';
 import '../style/palette.dart';
@@ -40,15 +42,16 @@ class WinGameScreen extends StatelessWidget {
     } catch (e) {
       // Handle or log error
       print("Error fetching data: $e");
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to open the wallet URL')),
-      );
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(content: Text('Failed to open the wallet URL')),
+      // );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
+    final audioController = context.read<AudioController>();
 
     const gap = SizedBox(height: 10);
 
@@ -78,7 +81,10 @@ class WinGameScreen extends StatelessWidget {
             ),
             gap,
             InkWell(
-              onTap: () => _fetchAndLaunchUrl(context, score),
+              onTap: () {
+                audioController.playSfx(SfxType.buttonTap);
+                _fetchAndLaunchUrl(context, score);
+              },
               child: Image.asset(
                   'assets/images/wallet/enGB_add_to_google_wallet_add-wallet-badge.png'), // Replace with your image asset path
             ),

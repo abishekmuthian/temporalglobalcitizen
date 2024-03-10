@@ -1,3 +1,8 @@
 *.code-workspace
 *.env
 temporal-global-citizen-db0309516509.json
+fly.toml
+__debug_bin*
+.firebase
+firebase.json
+.firebaserc

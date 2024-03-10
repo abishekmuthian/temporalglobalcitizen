@@ -140,24 +140,32 @@ class ProjectViewComponent extends PositionComponent
         break;
       case 'WinLevel1':
         background.sprite = gameRef.greeneryLevel1BackgroundSprite;
+        audioController.playSfx(SfxType.perfect);
         break;
       case 'WinLevel2':
         background.sprite = gameRef.greeneryLevel2BackgroundSprite;
+        audioController.playSfx(SfxType.perfect);
         break;
       case 'WinLevel3':
         background.sprite = gameRef.greeneryLevel3BackgroundSprite;
+        audioController.playSfx(SfxType.perfect);
+
         break;
       case 'Loading':
         background.sprite = gameRef.loadingBackgroundSprite;
         break;
       case 'GameOver':
         background.sprite = gameRef.gameOverBackgroundSprite;
+        audioController.playSfx(SfxType.wrong);
         break;
       case 'CelebrationLevel1':
         background.sprite = gameRef.greeneryLevel1BackgroundSprite;
         break;
       case 'CelebrationLevel2':
         background.sprite = gameRef.greeneryLevel2BackgroundSprite;
+        break;
+      case 'CelebrationLevel3':
+        background.sprite = gameRef.greeneryLevel3BackgroundSprite;
         break;
     }
   }

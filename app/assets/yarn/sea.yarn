@@ -10,7 +10,7 @@ title: Sea
     Aeon: I'm messaging you via a temporal portal
     Aeon: Access your temporal portal at Global Citizen
     Aeon: Visit globalcitizen\n.org website
-    Aeon: Create a public profile
+    Aeon: Create a new public profile
     ->You: I have created a public profile at Global Citizen
         Aeon: Enter your Global Citizen username in the settings here
         Aeon: Click the gear button on the top right
@@ -24,7 +24,7 @@ title: Sea
         <<visit Loading>>
         <<jump Connection>>   
     <<else>>
-        <<if $levelReached == $level>>
+        <<if $levelReached == $level || $level < $levelReached>>
             <<jump {"CelebrationLevel" + string($level)}>>   
         <<else>>
             <<visit Loading>>

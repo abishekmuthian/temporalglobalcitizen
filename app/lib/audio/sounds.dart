@@ -49,6 +49,14 @@ List<String> soundTypeToFilename(SfxType type) {
       ];
     case SfxType.confirm:
       return const ['UI_Confirm.wav'];
+    case SfxType.perfect:
+      return const ['PERFECT_Piano.wav'];
+    case SfxType.complete:
+      return const ['End_Complete3.wav'];
+    case SfxType.wrong:
+      return const ['End_Wrong.wav'];
+    case SfxType.win:
+      return const ['GoldenApple_Get.wav'];
   }
 }
 
@@ -65,9 +73,17 @@ double soundTypeToVolume(SfxType type) {
     case SfxType.swishSwish:
       return 1.0;
     case SfxType.move:
-      return 2.0;
+      return 1.0;
     case SfxType.confirm:
-      return 2.0;
+      return 1.0;
+    case SfxType.perfect:
+      return 1.0;
+    case SfxType.complete:
+      return 1.0;
+    case SfxType.wrong:
+      return 1.0;
+    case SfxType.win:
+      return 1.0;
   }
 }
 
@@ -79,5 +95,9 @@ enum SfxType {
   erase,
   swishSwish,
   move,
-  confirm
+  confirm,
+  perfect,
+  complete,
+  wrong,
+  win,
 }

@@ -75,6 +75,7 @@ class _GameWidgetState extends State<GameWidget> {
 class JennyGame extends flame.FlameGame with TapCallbacks {
   late Palette palette;
   late LevelState levelState;
+  late AudioController audioController;
   late int points = 0;
   late int actions = 0;
   late int level;
@@ -101,6 +102,7 @@ class JennyGame extends flame.FlameGame with TapCallbacks {
       Palette palette, LevelState levelState, AudioController audioController) {
     this.palette = palette;
     this.levelState = levelState;
+    this.audioController = audioController;
     // Instantiate the ProjectViewComponent here or in onLoad, now that palette is available
     projectViewComponent = ProjectViewComponent(
         palette: palette,
@@ -142,6 +144,7 @@ class JennyGame extends flame.FlameGame with TapCallbacks {
   void processWin() {
     levelState.setProgress((100).round());
     levelState.evaluate();
+    audioController.playSfx(SfxType.win);
   }
 
   YarnProject yarnProject = YarnProject();
