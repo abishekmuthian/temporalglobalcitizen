@@ -31,6 +31,7 @@ import 'package:html/dom.dart' as dom;
 
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:temporal_global_citizen/game_internals/data_fetcher.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// This widget defines the game UI itself, without things like the settings
 /// button or the back button.
@@ -147,6 +148,32 @@ class JennyGame extends flame.FlameGame with TapCallbacks {
     audioController.playSfx(SfxType.win);
   }
 
+  Future<void> launchInBrowser(String page) async {
+    String url;
+    try {
+      switch (page) {
+        case "home":
+          url = "https://globalcitizen.org";
+          break;
+        case "actions":
+          url = "https://www.globalcitizen.org/en/campaign/defend-the-planet/";
+          break;
+        default:
+          url = "https://globalcitizen.org";
+          break;
+      }
+      if (!await launchUrl(Uri.parse(url))) {
+        throw 'Could not launch $url';
+      }
+    } catch (e) {
+      // Handle or log error
+      print("Error fetching global citizen url to open in browser: $e");
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(content: Text('Failed to open the global citizen URL')),
+      // );
+    }
+  }
+
   YarnProject yarnProject = YarnProject();
 
   @override
@@ -228,6 +255,7 @@ class JennyGame extends flame.FlameGame with TapCallbacks {
       ..functions.addFunction0("getLevel", getLevel)
       ..commands.addCommand0("refreshData", refreshData)
       ..commands.addCommand0("processWin", processWin)
+      ..commands.addCommand1("launchInBrowser", launchInBrowser)
       ..parse(seaDialogueData)
       ..parse(sea2DialogueData)
       ..parse(sunDialogueData)

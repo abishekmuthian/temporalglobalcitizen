@@ -11,6 +11,7 @@ title: Sea
     Aeon: Access your temporal portal at Global Citizen
     Aeon: Visit globalcitizen\n.org website
     Aeon: Create a new public profile
+    <<launchInBrowser home>>
     ->You: I have created a public profile at Global Citizen
         Aeon: Enter your Global Citizen username in the settings here
         Aeon: Click the gear button on the top right

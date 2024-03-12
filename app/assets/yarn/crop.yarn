@@ -6,6 +6,7 @@ title:Crop
     Aeon: 1.5 °C could still pose existential challenge to small islands and low-lying nations
     Aeon: We need to focus on getting net temperature change to zero
     Aeon: Take 50 Defend The Planet actions on Global Citizen
+    <<launchInBrowser actions>>
     -> You: I have taken 50 Defend The Planet actions
         <<visit Loading>>
         <<if getActions() >= 50 >>

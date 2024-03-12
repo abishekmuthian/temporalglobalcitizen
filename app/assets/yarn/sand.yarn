@@ -1,8 +1,10 @@
 title: Sand
 ---
 << if getActions() < 5 >>
+    Aeon: Congratulations on taking {getActions()} { if(getActions() > 1, "actions", "action") }!
     Aeon: Let's try to limit global warming below 2 °C
     Aeon: Take 5 Defend The Planet actions on Global Citizen
+    <<launchInBrowser actions>>
     -> You: I have taken 5 Defend The Planet actions
         <<visit Loading>>
         <<if getActions() >= 5 >>

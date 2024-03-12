@@ -41,7 +41,7 @@ class WinGameScreen extends StatelessWidget {
       }
     } catch (e) {
       // Handle or log error
-      print("Error fetching data: $e");
+      print("Error fetching wallet url to open in browser: $e");
       // ScaffoldMessenger.of(context).showSnackBar(
       //   SnackBar(content: Text('Failed to open the wallet URL')),
       // );

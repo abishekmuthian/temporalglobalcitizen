@@ -51,6 +51,7 @@ flutter:
     - family: PressStart2P
       fonts:
         - asset: assets/fonts/Press_Start_2P/PressStart2P-Regular.ttf
+
 flutter_launcher_icons:
   android: true
   ios: true
