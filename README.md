@@ -2,10 +2,10 @@
 
 A dialogue based flutter game to assist in the battle to defend the planet!
 
-Web Demo: https://temporal-global-citizen.web.app   [Note: Audio and image loading might take a while on the web during first run]
+##Try
+**Web Demo**: https://temporal-global-citizen.web.app [Note: Audio and images loading might take a while depending upon your Internet connection on the web during first run].
 
-**Recommended**
-Android app app bundles & apks are available in the releases - https://github.com/abishekmuthian/temporalglobalcitizen/releases/tag/0.0.1
+**Android Demo**: (Recommended) app bundle & apks are available in the GitHub releases - https://github.com/abishekmuthian/temporalglobalcitizen/releases/tag/0.0.1
 
 # Architecture
 ![Temporal Global Citizen Architecture](https://temporalglobalcitizen.s3.us-east-2.amazonaws.com/temporal-global-citizen-architecture.png)
