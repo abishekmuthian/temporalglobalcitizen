@@ -45,6 +45,28 @@ class GameWidget extends StatefulWidget {
 
 class _GameWidgetState extends State<GameWidget> {
   late Future<Map<String, int>> pointsFuture;
+  late JennyGame game;
+
+  @override
+  void initState() {
+    super.initState();
+
+    game = JennyGame();
+
+    game.onLoadingStart = () {
+      WidgetsBinding.instance.addPostFrameCallback(
+          (_) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text('Loading game assets...'),
+                duration: Duration(seconds: 120),
+              )));
+    };
+
+    game.onLoadingComplete = () {
+      if (mounted) {
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      }
+    };
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +77,7 @@ class _GameWidgetState extends State<GameWidget> {
     final playerProgress = context.watch<PlayerProgress>();
     final audioController = context.watch<AudioController>();
 
-    final game = JennyGame()
+    game
       ..set(palette, levelState, audioController)
       ..setPlayerName(settings.playerName.value)
       ..setHighestLevelReached(playerProgress.highestLevelReached)
@@ -74,6 +96,8 @@ class _GameWidgetState extends State<GameWidget> {
 }
 
 class JennyGame extends flame.FlameGame with TapCallbacks {
+  Function()? onLoadingStart;
+  Function()? onLoadingComplete;
   late Palette palette;
   late LevelState levelState;
   late AudioController audioController;
@@ -178,6 +202,8 @@ class JennyGame extends flame.FlameGame with TapCallbacks {
 
   @override
   FutureOr<void> onLoad() async {
+    onLoadingStart?.call();
+
     // Ensure palette has been set before proceeding
     seaBackgroundSprite =
         await loadSprite('backgrounds/bg_sea_rise_skyscrapper.webp');
@@ -278,6 +304,7 @@ class JennyGame extends flame.FlameGame with TapCallbacks {
     );
     dialogueRunner.startDialogue('Sea');
     add(projectViewComponent);
+    onLoadingComplete?.call();
     return super.onLoad();
   }
 

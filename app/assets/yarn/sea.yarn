@@ -15,11 +15,17 @@ title: Sea
     ->You: I have created a public profile at Global Citizen
         Aeon: Enter your Global Citizen username in the settings here
         Aeon: Click the gear button on the top right
+        -> You: I have set the profile name
+            <<visit Loading>>
+            <<jump Connection>>
     ->You: I don't know how
         Aeon: Visit globalcitizen\n.org website
         Aeon: Sign Up, Enable public profile
         Aeon: Enter your Global Citizen username in the settings here
         Aeon: Click the gear button on the top right
+        -> You: I have set the profile name
+            <<visit Loading>>
+            <<jump Connection>>
 <<else>>
     <<if $levelReached == 0>>
         <<visit Loading>>

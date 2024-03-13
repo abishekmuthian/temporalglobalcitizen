@@ -1,7 +1,7 @@
 title: Connection
 ---
 <<if getPoints() > 0>>
-    Aeon: Great work {$playerName}, we have a secure connection
+    Aeon: Great work {if ($playerName!= "Player", $playerName, "")}, we have a secure connection
     <<if $level == 1>>
         <<jump Sun>>
     <<elseif $level == 2>>
@@ -11,5 +11,8 @@ title: Connection
     <<endif>>        
 <<else>>
     Aeon: Cannot establish connection, check profile name
+    -> You: I have fixed the profile name
+        <<visit Loading>>
+        <<jump Connection>> 
 <<endif>>
 ===
